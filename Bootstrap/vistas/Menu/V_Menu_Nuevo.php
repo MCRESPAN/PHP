@@ -74,7 +74,9 @@
             <div class="col-lg-12 mt-2">
                 <button type="button" class="btn btn-primary" onclick="guardarMenuItem()"><?php echo $editar; ?></button>
 
-                <button type="button" class="btn btn-secondary" onclick="document.getElementById('capaEditarCrear').innerHTML = '';">Cancelar</button>
+                <button type="button" class="btn btn-secondary" onclick="document.querySelector('.formulario-superpuesto').remove();">
+                    Cancelar
+                </button>
             </div>
         </div>
         <!-- Contenedor para el mensaje de error -->

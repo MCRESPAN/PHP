@@ -135,15 +135,6 @@ class M_Menu extends Modelo {
     
         // Usar el método actualizar del DAO
         return $this->DAO->actualizar($SQL);
-    
-        // Verificar si se afectaron filas
-        if ($resultado > 0) {
-            return true;
-        } else {
-            // Manejar el caso en el que no se afecta ninguna fila
-            error_log("No se afectaron filas en actualizarOrdenMenuItems: $SQL");
-            return false;
-        }
     }
     
     

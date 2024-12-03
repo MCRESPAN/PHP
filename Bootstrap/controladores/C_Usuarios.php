@@ -6,6 +6,7 @@ require_once 'Modelos/M_Usuarios.php';
 require_once 'vistas/Vista.php';
 
 class C_Usuarios extends Controlador{
+    private $modelo;
 
     // Constructor
     public function __construct() {

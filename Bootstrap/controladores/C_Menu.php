@@ -62,10 +62,48 @@ class C_Menu extends Controlador {
             if (empty($datos['id'])) { // Si no hay un id, es un nuevo item
                 // Llamar a una nueva funcion para aumentar el orden en +1 de los items que tengan el mismo padre que el nuevo item y su orden sea igual o mayor que el del nuevo item
                 $this->modelo->actualizarOrdenMenuItems($datos);
-                
                 $id = $this->modelo->insertarMenuItem($datos);     
-                if($id > 0) {
+                if ($id > 0) {
+
+                    // Verifica si no es necesario realizar la consulta
+                    if (($datos['padre_id'] === null || $datos['padre_id'] == 0) && $datos['orden'] == 1) {
+                        // Si padre_id es null o 0, y orden es 1, no se realiza la consulta
+                        $previoId = null;
+                        $padrePadreId = null;
+                    } else {
+                        // Construye los filtros para la consulta
+                        $filtros = [
+                            'padre_id' => $datos['padre_id'],
+                            'orden' => $datos['orden'] - 1
+                        ];
+
+                        // Ejecuta la consulta para obtener el elemento previo
+                        $elementoPrevio = $this->modelo->buscarMenuItems($filtros);
+
+                        // Verifica si el resultado de la consulta contiene datos
+                        if (!empty($elementoPrevio) && isset($elementoPrevio[0])) {
+                            $previoId = $elementoPrevio[0]['id'];
+                            $padrePadreId = $elementoPrevio[0]['padre_id'];
+                        } else {
+                            $previoId = null;
+                            $padrePadreId = null;
+                        }
+                    }
+                    
+
+                    $respuesta['correcto'] = 'S';
                     $respuesta['msj'] = 'Creado correctamente';
+                    $respuesta['menu_item'] = [
+                        'id' => $id,
+                        'titulo' => $datos['titulo'],
+                        'nivel' => $datos['nivel'],
+                        'padre_id' => $datos['padre_id'],
+                        'orden' => $datos['orden'],
+                        'controlador' => $datos['controladorMenuItem'],
+                        'metodo' => $datos['metodoMenuItem'],
+                        'previo_id' => $previoId,
+                        'padre_padre_id' => $padrePadreId
+                    ];
                 } else {
                     $respuesta['correcto'] = 'N';   
                     $respuesta['msj'] = 'Se ha producido un error';

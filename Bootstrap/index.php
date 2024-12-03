@@ -17,23 +17,25 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] === '') {
         <link href="css/app.css" rel="stylesheet">
     </head>
     <body>
-        <!-- Container fluid es que va a ser una pantalla responsive que se va a adaptar a la pantalla del usuario -->
-        <div class="container-fluid" id="capaEncabezado">
-            <div class="row">
-                
-                <div class="col-md-2 col-sm-9 d-none d-sm-block">  <!-- así especificamos los tamaños en la pantalla, cuantas columnas ocupará; entre todos los elementos siempre tienen que sumar 12; funcionalidad exclusiva de bootstrap -->
-                    <img src="img/mcf.png" style="height: 5rem;">
-                </div>    
-                <div class="col-md-8 d-none d-md-block divTitulo">
-                    Crespán
-                </div> 
-                <div class="col-md-2 col-sm-3 d-none d-sm-block">
-                    login
-                    <?php echo $_SESSION['login']; ?>
+        <!-- Encabezado -->
+        <div class="container-fluid bg-dark text-white py-2" id="capaEncabezado">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-md-2 col-sm-9 d-none d-sm-block text-center">
+                    <img src="img/mcf.png" alt="Logo" class="img-fluid rounded-circle" style="height: 4rem;">
                 </div>
-
+                <!-- Título -->
+                <div class="col-md-8 d-none d-md-block text-center divTitulo">
+                    <h2 class="display-title mb-0">Marcos Crespán Figueras</h2>
+                </div>
+                <!-- Login -->
+                <div class="col-md-2 col-sm-3 text-center">
+                    <span class="fw-semibold" style="font-size: 0.9rem;">Login:</span>
+                    <span class="text-info" style="font-size: 0.9rem;"><?php echo $_SESSION['login']; ?></span>
+                </div>
             </div>
         </div>
+
 
         <!-- Nuevo menú dinámico -->
         <div class="container-fluid" id="capaMenuDinamico">

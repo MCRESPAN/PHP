@@ -26,6 +26,7 @@ function obtenerVista(controlador, metodo, destino) {
         });
 }
 
+
 function obtenerVista_EditarCrear(controlador, metodo, destino, id) {
 
     let parametros = "controlador=" + controlador + "&metodo=" + metodo + "&id=" + id
@@ -69,3 +70,5 @@ function buscar(controlador, metodo, formulario, destino) {
             console.log("Error al pedir vista", err.message);
         });
 }
+
+

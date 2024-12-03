@@ -40,8 +40,8 @@
 
             <!-- URL -->
             <div class="form-group col-md-6 col-sm-12">
-                <label for="url">URL:</label>
-                <input type="text" id="url" name="url" class="form-control" placeholder="URL"
+                <!-- <label for="url">URL:</label> -->
+                <input type="hidden" id="url" name="url" class="form-control" placeholder="URL"
                     value="<?php echo $url; ?>">
             </div>
         </div>
@@ -49,14 +49,14 @@
         <!-- Nivel y Padre ID -->
         <div class="row">
             <div class="form-group col-md-6 col-sm-12">
-                <label for="nivel">Nivel:</label>
-                <input type="number" id="nivel" name="nivel" class="form-control" placeholder="Nivel"
+                <!-- <label for="nivel">Nivel:</label> -->
+                <input type="hidden" id="nivel" name="nivel" class="form-control" placeholder="Nivel"
                     value="<?php echo $nivel; ?>" required>
             </div>
 
             <div class="form-group col-md-6 col-sm-12">
-                <label for="padre_id">Padre ID:</label>
-                <input type="number" id="padre_id" name="padre_id" class="form-control" placeholder="Padre ID"
+                <!-- <label for="padre_id">Padre ID:</label> -->
+                <input type="hidden" id="padre_id" name="padre_id" class="form-control" placeholder="Padre ID"
                     value="<?php echo $padre_id; ?>">
             </div>
         </div>
@@ -64,17 +64,17 @@
         <!-- Orden y Dropdown -->
         <div class="row">
             <div class="form-group col-md-6 col-sm-12">
-                <label for="orden">Orden:</label>
-                <input type="number" id="orden" name="orden" class="form-control" placeholder="Orden"
+                <!-- <label for="orden">Orden:</label> -->
+                <input type="hidden" id="orden" name="orden" class="form-control" placeholder="Orden"
                     value="<?php echo $orden; ?>" required>
             </div>
 
             <div class="form-group col-md-6 col-sm-12">
-                <label for="es_dropdown">Es Dropdown:</label>
-                <select id="es_dropdown" name="es_dropdown" class="form-control" required>
+                <!-- <label for="es_dropdown">Es Dropdown:</label> -->
+                <!-- <select type="hidden" id="es_dropdown" name="es_dropdown" class="form-control" required>
                     <option value="1" <?php if($es_dropdown == 1) echo ('selected'); ?>>Sí</option>
                     <option value="0" <?php if($es_dropdown == 0) echo ('selected'); ?>>No</option>
-                </select>
+                </select> -->
             </div>
         </div>
 
@@ -98,7 +98,9 @@
             <div class="col-lg-12 mt-2">
                 <button type="button" class="btn btn-primary" onclick="guardarMenuItem()"><?php echo $editar; ?></button>
 
-                <button type="button" class="btn btn-secondary" onclick="document.getElementById('capaEditarCrear').innerHTML = '';">Cancelar</button>
+                <button type="button" class="btn btn-secondary" onclick="document.querySelector('.formulario-superpuesto').remove();">
+                    Cancelar
+                </button>
             </div>
         </div>
         <!-- Contenedor para el mensaje de error -->

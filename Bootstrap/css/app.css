@@ -7,3 +7,51 @@
     vertical-align: middle;
     font-size: 2rem;
 }
+
+
+#capaEncabezado {
+    border-bottom: 1px solid #10A5E1; /* Línea decorativa */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Estilo mejorado para el texto "Crespán" */
+.display-title {
+    font-size: 2rem; /* Tamaño elegante */
+    font-weight: bold;
+    font-family: 'Montserrat'; /* Fuente elegante */
+ /* Color destacado */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+}
+
+/* Logo con tamaño más grande */
+img {
+    padding: 4px;
+    height: 4rem; /* Aumentar tamaño del logo */
+}
+
+/* Estilo para el texto del login */
+.text-info {
+    font-weight: 500;
+    color: #10A5E1 !important; /* Color destacado */
+}
+
+/* Ajuste general del cuerpo para fuente básica */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente limpia y legible */
+}
+
+
+.formulario-superpuesto {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 15px;
+}
+
+
+
+
